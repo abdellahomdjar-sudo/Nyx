@@ -1,0 +1,30 @@
+{
+  "name": "nyx",
+  "productName": "Nyx",
+  "version": "1.0.0",
+  "description": "Nyx music player with word-synced lyrics and beat-reactive visuals",
+  "author": "Nyx",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^37.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "app.nyx.player",
+    "productName": "Nyx",
+    "files": ["main.js", "preload.js", "src/**/*", "build/icon.png"],
+    "directories": { "buildResources": "build", "output": "dist" },
+    "mac": { "category": "public.app-category.music", "target": ["dmg"] },
+    "win": { "target": ["nsis"] },
+    "linux": { "target": ["AppImage", "deb"], "category": "AudioVideo", "maintainer": "Nyx" }
+  }
+}
